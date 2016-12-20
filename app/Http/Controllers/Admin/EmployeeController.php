@@ -135,6 +135,7 @@ class EmployeeController extends PanelController
         $employee = Employee::find($id);
 
         if ($employee) {
+            //TODO удаление фото
             $employee->delete();
         }
 
