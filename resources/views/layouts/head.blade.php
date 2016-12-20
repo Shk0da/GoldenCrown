@@ -9,5 +9,6 @@
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/jasny-bootstrap.min.css" rel="stylesheet">
     <link href="/css/navmenu-reveal.css" rel="stylesheet">
+    <link href="/css/clockpicker.css" rel="stylesheet">
     <link href="/css/app.css" rel="stylesheet">
 </head>

@@ -17,8 +17,32 @@
                 </div>
                 <div class="form-group">
                     <label for="employeePhoto">Фото</label>
-                    <input type="file" class="form-control" id="employeePhoto" name="photo" value="{{ old('photo') }}"
+                    <input type="file" id="employeePhoto" name="photo" value="{{ old('photo') }}"
                            autocomplete="false">
+                    @if ($errors->has('photo'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('photo') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <div class="form-group">
+                    <label for="employeeTime">Рабочее время</label>
+                </div>
+                <div class="form-group">
+                    @foreach(['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'] as $day)
+
+                        <input type="checkbox" name="times[{{ $day }}][day]" value="{{ $day }}"> {{ $day }}
+
+                        <div class="form-inline">
+                            <div class="form-group clockpicker">
+                                с <input type="text" name="times[{{ $day }}][start]" value="09:30">
+                            </div>
+                            <div class="form-group clockpicker">
+                                по <input type="text" name="times[{{ $day }}][end]" value="18:00">
+                            </div>
+                        </div>
+                        <br>
+                    @endforeach
                 </div>
             </div>
         </div>

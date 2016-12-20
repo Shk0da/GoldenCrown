@@ -17,6 +17,7 @@ class CreateEmployeesTable extends Migration
             $table->increments('id');
             $table->string('name')->unique();
             $table->string('photo')->nullable();
+            $table->json('time')->nullable();
             $table->timestamps();
         });
     }

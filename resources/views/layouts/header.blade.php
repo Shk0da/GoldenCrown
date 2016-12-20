@@ -7,7 +7,6 @@
             <li><hr></li>
             <li><a href="{{ route('panel') }}">Панель управления</a></li>
             <li><a href="{{ route('employee') }}">Сотрудники</a></li>
-            <li><a href="{{ route('employee.times') }}">Рабочее время сотрудников</a></li>
             <li><a href="{{ route('service.types') }}">Типы услуг</a></li>
             <li><a href="{{ route('services') }}">Услуги</a></li>
             <li><a href="{{ route('orders') }}">Заказы</a></li>

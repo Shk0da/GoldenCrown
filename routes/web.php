@@ -23,9 +23,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('employee', 'EmployeeController', ['names' => [
             'index' => 'employee',
         ]]);
-        Route::resource('workingTime', 'WorkingTimeController', ['names' => [
-            'index' => 'employee.times'
-        ]]);
         Route::resource('serviceTypes', 'ServiceTypeController', ['names' => [
             'index' => 'service.types'
         ]]);

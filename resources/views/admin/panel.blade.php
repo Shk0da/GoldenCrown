@@ -30,12 +30,12 @@
                             <div class="col-md-4">
                                 <div class="thumbnail">
                                     <div class="caption">
-                                        <h3>Рабочее время</h3>
+                                        <h3>Типы услуг</h3>
                                         <p>
-                                            В этом раздеде вы можете управлять своими рабочим временем своих сотрудников
+                                            В этом раздеде вы можете категоризировать услуги
                                         </p>
                                         <p>
-                                            <a href="{{ route('employee.times') }}" class="btn btn-default" role="button">Перейти</a>
+                                            <a href="{{ route('service.types') }}" class="btn btn-default" role="button">Перейти</a>
                                         </p>
                                     </div>
                                 </div>
@@ -55,7 +55,7 @@
                             </div>
                         </div>
                         <div class="row text-center">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="thumbnail">
                                     <div class="caption">
                                         <h3>Заказы ({{ App\Http\Models\Order::count() }})</h3>
@@ -64,19 +64,6 @@
                                         </p>
                                         <p>
                                             <a href="{{ route('orders') }}" class="btn btn-default" role="button">Перейти</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="thumbnail">
-                                    <div class="caption">
-                                        <h3>Типы услуг</h3>
-                                        <p>
-                                            В этом раздеде вы можете категоризировать услуги
-                                        </p>
-                                        <p>
-                                            <a href="{{ route('service.types') }}" class="btn btn-default" role="button">Перейти</a>
                                         </p>
                                     </div>
                                 </div>

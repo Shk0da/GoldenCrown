@@ -41,10 +41,12 @@ class EmployeeController extends PanelController
     {
         $this->validate($request, [
             'name' => 'unique:employees|required|min:2',
+            'photo' => 'image',
         ]);
 
         $employee = new Employee();
         $employee->name = $request->input('name');
+        $employee->time = json_encode($request->input('times'));
         $employee->save();
 
         if ($request->hasFile('photo'))
@@ -99,6 +101,7 @@ class EmployeeController extends PanelController
     {
         $this->validate($request, [
             'name' => 'required|min:2|unique:employees,name,' . $id,
+            'photo' => 'image',
         ]);
 
         $employee = Employee::find($id);
@@ -108,6 +111,7 @@ class EmployeeController extends PanelController
         }
 
         $employee->name = $request->input('name');
+        $employee->time = json_encode($request->input('times'));
         $employee->save();
 
         if ($request->hasFile('photo'))

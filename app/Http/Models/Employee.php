@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Storage;
  * @property integer $id
  * @property string $name
  * @property string $photo
+ * @property array $time
  */
 class Employee extends Model
 {
@@ -33,4 +34,10 @@ class Employee extends Model
 
         return (string)$photo;
     }
+
+   public function getTimes()
+   {
+       return (array)($this->time ? json_decode($this->time) : []);
+   }
+
 }
