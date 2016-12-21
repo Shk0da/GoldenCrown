@@ -9,5 +9,7 @@
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/jasny-bootstrap.min.js"></script>
     <script src="/js/clockpicker.js"></script>
+    <script src="/js/jquery-ui.min.js"></script>
+    <script src="/js/datapicker-ru.js"></script>
     <script src="/js/app.js"></script>
 </footer>

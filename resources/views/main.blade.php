@@ -21,7 +21,7 @@
                     </ul>
                 </div>
             </div>
-            <div id="servicePanel" class="panel panel-default">
+            <div id="servicePanel" class="panel panel-default" style="display: none">
                 <div class="panel-heading">Выбор услуги</div>
                 <div class="panel-body">
                     <ul class="list-group col-md-4 col-md-offset-4">
@@ -39,17 +39,16 @@
                             </div>
                         @endforeach
                     </ul>
-                    <button class="btn btn-default">Далее</button>
+                    <button class="btn btn-default checkService">Далее</button>
                 </div>
             </div>
-            <div id="timePanel" class="panel panel-default">
+            <div id="timePanel" class="panel panel-default" style="display: none">
                 <div class="panel-heading">Выбор времени</div>
-                <div class="panel-body">
-
-                    <button class="btn btn-default">Далее</button>
+                <div class="panel-body text-center">
+                    <div id="datepicker" class="col-md-offset-4"></div>
                 </div>
             </div>
-            <div id="payPanel" class="panel panel-default">
+            <div id="payPanel" class="panel panel-default" style="display: none">
                 <div class="panel-heading">Оплата</div>
                 <div class="panel-body">
 
