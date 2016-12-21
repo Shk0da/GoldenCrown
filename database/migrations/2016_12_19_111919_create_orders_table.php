@@ -17,6 +17,7 @@ class CreateOrdersTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('customer_id');
             $table->unsignedInteger('service_id');
+            $table->unsignedInteger('employee_id');
             $table->dateTime('datetime');
             $table->timestamps();
         });

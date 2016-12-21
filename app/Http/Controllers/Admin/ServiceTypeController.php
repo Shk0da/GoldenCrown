@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Models\ServiceType;
 use Illuminate\Http\Request;
 
 class ServiceTypeController extends PanelController
@@ -14,6 +15,9 @@ class ServiceTypeController extends PanelController
     public function index()
     {
         $view = parent::index();
+
+        $view->with('list', ServiceType::all());
+
         return $view;
     }
 
@@ -24,7 +28,7 @@ class ServiceTypeController extends PanelController
      */
     public function create()
     {
-        //
+        return view('admin/servicetype/create');
     }
 
     /**
@@ -35,7 +39,16 @@ class ServiceTypeController extends PanelController
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'unique:service_types|required|min:2',
+        ]);
+
+        $serviceType = new ServiceType();
+        $serviceType->name = $request->input('name');
+        $serviceType->save();
+
+
+        return redirect()->intended('admin/serviceTypes');
     }
 
     /**
@@ -57,7 +70,16 @@ class ServiceTypeController extends PanelController
      */
     public function edit($id)
     {
-        //
+        $serviceType = ServiceType::find($id);
+
+        if (!$serviceType) {
+            abort(404);
+        }
+
+        $view = view('admin/servicetype/edit');
+        $view->with('serviceType', $serviceType);
+
+        return $view;
     }
 
     /**
@@ -69,7 +91,20 @@ class ServiceTypeController extends PanelController
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|min:2|unique:service_types,name,' . $id,
+        ]);
+
+        $serviceType = ServiceType::find($id);
+
+        if (!$serviceType) {
+            abort(404);
+        }
+
+        $serviceType->name = $request->input('name');
+        $serviceType->save();
+
+        return redirect()->intended('admin/serviceTypes');
     }
 
     /**
@@ -80,6 +115,12 @@ class ServiceTypeController extends PanelController
      */
     public function destroy($id)
     {
-        //
+        $serviceType = ServiceType::find($id);
+
+        if ($serviceType) {
+            $serviceType->delete();
+        }
+
+        return redirect()->intended('admin/serviceTypes');
     }
 }

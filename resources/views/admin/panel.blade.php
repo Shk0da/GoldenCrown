@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Панель управления салоном</div>
+                <div class="panel-heading"><a href="{{ route('panel') }}">Панель управления салоном</a></div>
                 <div class="panel-body">
                     @section('innerContent')
                         <div class="row text-center">
@@ -30,7 +30,7 @@
                             <div class="col-md-4">
                                 <div class="thumbnail">
                                     <div class="caption">
-                                        <h3>Типы услуг</h3>
+                                        <h3>Типы услуг ({{ App\Http\Models\ServiceType::count() }})</h3>
                                         <p>
                                             В этом раздеде вы можете категоризировать услуги
                                         </p>

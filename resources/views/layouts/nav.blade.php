@@ -16,6 +16,8 @@
         <div class="row text-center head-row">
             <a href="{{ url('/') }}">
                 <img src="/favicon.png" height="30px" alt="{{ config('app.name') }}">
+
             </a>
+            <h4>{{ config('app.name') }}</h4>
         </div>
     </div>

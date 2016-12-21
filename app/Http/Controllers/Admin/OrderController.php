@@ -14,6 +14,11 @@ class OrderController extends PanelController
     public function index()
     {
         $view = parent::index();
+
+        $list = [];
+
+        $view->with('list', $list);
+
         return $view;
     }
 
