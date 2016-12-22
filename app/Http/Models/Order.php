@@ -34,7 +34,8 @@ class Order extends Model
 
     public function getEmployee()
     {
-        return (string)$this->employee()->first()->getName();
+        $employee = $this->employee()->first();
+        return (string)$employee ? $employee->getName() : null;
     }
 
     public function getService()
