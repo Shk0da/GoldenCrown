@@ -1,3 +1,19 @@
 .head-row {
     padding: 20px;
 }
+
+#datepicker {
+    padding-left: 6%;
+}
+
+#datapicker-time {
+    padding: 20px;
+}
+
+#datapicker-time label {
+    padding: 20px;
+}
+
+#total {
+    padding-left: 6%;
+}

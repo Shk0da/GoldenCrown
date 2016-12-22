@@ -1,23 +1,20 @@
-@extends('admin.panel')
+@extends('layouts.app')
 
-@section('innerContent')
-
-    <h4>Список заказов:</h4>
+@section('content')
+    <div class="alert alert-success" role="alert">
+        <strong>Поздравляем!</strong> Вы записались в наш чудесный салон.
+    </div>
+    <h4>Ваши заказы:</h4>
     <table class="table table-striped table-bordered">
         <thead>
         <tr>
-            <td>id</td>
-            <td>Имя клиента</td>
             <td>Заказы</td>
             <td>Итого</td>
-            <td>Действия</td>
         </tr>
         </thead>
         <tbody>
         @foreach($list as $item)
             <tr>
-                <td>{{ $item->getId() }}</td>
-                <td>{{ $item->getName() }}</td>
                 <td>
                     @foreach($item->getOrders()->groupBy('datetime') as $datetime => $orders)
                         <h5>Дата записи: {{ $datetime }}</h5>
@@ -34,18 +31,6 @@
                     @endforeach
                 </td>
                 <td>{{ $item->getCost() }}</td>
-                <td>
-                    <a class="btn btn-small btn-warning"
-                       onclick="event.preventDefault();document.getElementById('destroy_{{ $item->getId() }}').submit();"
-                       href="{{ route('orders.destroy', ['id' => $item->getId()]) }}">
-                        Удалить
-                    </a>
-                    <form id="destroy_{{ $item->getId() }}"
-                          action="{{ route('orders.destroy', ['id' => $item->getId()]) }}" method="post">
-                        <input type="hidden" name="_method" value="delete">
-                        {{ csrf_field() }}
-                    </form>
-                </td>
             </tr>
         @endforeach
         </tbody>

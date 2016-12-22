@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Models\Customer;
+use App\Http\Models\Order;
 use Illuminate\Http\Request;
 
 class OrderController extends PanelController
@@ -15,7 +17,7 @@ class OrderController extends PanelController
     {
         $view = parent::index();
 
-        $list = [];
+        $list = Customer::orderBy('id')->get();
 
         $view->with('list', $list);
 
@@ -85,6 +87,13 @@ class OrderController extends PanelController
      */
     public function destroy($id)
     {
-        //
+        $customer = Customer::find($id);
+
+        if ($customer) {
+            Order::whereCustomerId($customer->getId())->delete();
+            $customer->delete();
+        }
+
+        return redirect()->intended('admin/orders');
     }
 }

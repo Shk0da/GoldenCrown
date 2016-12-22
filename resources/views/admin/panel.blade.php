@@ -58,7 +58,7 @@
                             <div class="col-md-12">
                                 <div class="thumbnail">
                                     <div class="caption">
-                                        <h3>Заказы ({{ App\Http\Models\Order::count() }})</h3>
+                                        <h3>Заказы ({{ count(App\Http\Models\Order::select('customer_id')->groupBy('customer_id')->get()) }})</h3>
                                         <p>
                                             В этом раздеде вы можете посмотреть заказы
                                         </p>
