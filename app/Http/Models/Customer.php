@@ -41,7 +41,7 @@ class Customer extends Model
         $orders = $this->getOrders();
 
         foreach ($orders as $order) {
-            $cost += $order->getService()->getCost();
+            $cost += ($order->getService()? $order->getService()->getCost() : 0);
         }
 
         return (float)$cost;

@@ -24,10 +24,11 @@
                         <?php $total = 0; ?>
                         @foreach($orders as $order)
                             <p>
-                                Услуга: {{ $order->getService()->getName() }} ({{ $order->getService()->getCost() }}) <br>
+                                Услуга: {{ $order->getService() ? $order->getService()->getName() : '' }}
+                                ({{ $order->getService() ? $order->getService()->getCost() : 0 }}) <br>
                                 Мастер: {{ $order->getEmployee() }} <br>
                             </p>
-                            <?php $total += $order->getService()->getCost(); ?>
+                            <?php $total += ($order->getService() ? $order->getService()->getCost() : 0); ?>
                         @endforeach
                         Стоимость: {{$total }} <br>
                         <hr>
