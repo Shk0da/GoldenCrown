@@ -34,7 +34,8 @@ class Service extends Model
 
     public function getType()
     {
-        return (string)$this->type()->first()->getName();
+        $type = $this->type()->first();
+        return (string)$type ? $type->getName() : null;
     }
 
     public function getTime()
