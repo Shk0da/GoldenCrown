@@ -1,3 +1,5 @@
+demo: http://goldencrown.herokuapp.com/
+
 php 5.6+
 mysql 5.6+
 
